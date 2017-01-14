@@ -1,0 +1,16 @@
+table.aviation-reports {
+	width: 100%;
+}
+table.aviation-reports th{
+	background-color: #777;
+	color: #fff;
+	padding: 5px 50px;
+}
+
+.xxxaaa{
+	color: red;
+}
+
+.d_table input[type="text"]{
+	width: 100%;
+}

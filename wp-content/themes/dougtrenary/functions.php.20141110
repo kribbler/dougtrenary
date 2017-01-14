@@ -1,0 +1,217 @@
+<?php
+
+function dougtrenary_widgets_init() {
+	register_sidebar( array(
+		'name'          => __( 'Header Widget Area', 'dougtrenary' ),
+		'id'            => 'sidebar-3',
+		'description'   => __( 'Appears in the header section of the site.', 'dougtrenary' ),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+	
+	register_sidebar( array(
+		'name'          => __( 'Home Sidebar', 'dougtrenary' ),
+		'id'            => 'home_widget_sidebar',
+		'description'   => __( 'Appears in the home page sidebar.', 'dougtrenary' ),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+	
+	register_sidebar( array(
+		'name'          => __( 'Sidebar Top', 'dougtrenary' ),
+		'id'            => 'sidebar-top',
+		'description'   => __( 'Appears in the sidebar.', 'dougtrenary' ),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+	
+	register_sidebar( array(
+		'name'          => __( 'Sidebar Bottom', 'dougtrenary' ),
+		'id'            => 'sidebar-bottom',
+		'description'   => __( 'Appears in the sidebar.', 'dougtrenary' ),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+	
+	register_sidebar( array(
+		'name'			=> 'Subscriber Resources',
+		'id'			=> 'sidebar-subscriber-resources',
+		'description'	=> 'Sidebar Subscriber Resources',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+	
+	register_sidebar( array(
+		'name'          => __( 'Sidebar Categories', 'dougtrenary' ),
+		'id'            => 'sidebar-categories',
+		'description'   => __( 'Woocommerce Categories - Appears in the sidebar.', 'dougtrenary' ),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+	
+	register_sidebar( array(
+		'name'          => __( 'Sidebar WooCommerce Cart', 'dougtrenary' ),
+		'id'            => 'sidebar-woocommerce-cart',
+		'description'   => __( 'Woocommerce Cart - Appears in the sidebar.', 'dougtrenary' ),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+	
+	register_sidebar( array(
+		'name'          => __( 'Future DTU Text', 'dougtrenary' ),
+		'id'            => 'future-dtu-text',
+		'description'   => __( 'Future DTU Text', 'dougtrenary' ),
+		'before_widget' => '',
+		'after_widget'  => '',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+	
+	
+	
+	include_once( 'widgets/subscriber-pages.php' );
+	register_widget( 'Subscriber_Pages' );
+	
+	include_once( 'widgets/class-wc-widget-cart.php' );
+	register_widget('Custom_WooCommerce_Widget_Cart');
+	
+	include_once( 'widgets/subscriber-account.php' );
+	register_widget( 'Subscriber_Account_Links' );
+	
+
+}
+add_action( 'widgets_init', 'dougtrenary_widgets_init' );
+
+function get_post_content_by_slug($slug){
+	$post = get_page_by_path( $slug, OBJECT, 'post' );
+	$postcontent = apply_filters('the_content', $post->post_content); 
+	return $postcontent;
+}
+
+
+/**
+ * woocommerce
+ */
+
+add_action( 'wp_enqueue_scripts', 'remove_gridlist_styles', 30 );
+function remove_gridlist_styles() {
+	wp_dequeue_style( 'grid-list-button' );
+}
+
+function can_view(){
+	$can_view = false;
+	$current_user = wp_get_current_user();
+	$user_id = $current_user->data->ID;
+	if ($user_id)
+		$can_view = true;
+	
+	$post_custom = get_post_custom($post->ID);
+	if (isset($post_custom['User level'])){
+	
+		$current_user = wp_get_current_user();
+		$user_id = $current_user->data->ID;
+		$user_meta = get_user_meta($user_id);
+		//var_dump($post_custom['User level'][0]);
+		//var_dump($user_meta['user_level'][0]);
+		if ((int)$user_meta['user_level'][0] >= (int)$post_custom['User level'] || is_admin()){
+			$can_view = true;
+		} else {
+			$can_view = false;
+		}
+	}
+	return $can_view;
+}
+
+add_action( 'edit_user_profile', 'my_show_user_level_field' );
+
+function my_show_user_level_field( $user ) { ?>
+	<?php 
+	$user_meta = get_user_meta($user->ID);
+	$user_level = $user_meta['user_level'][0];
+	?>
+	<h3>User Level</h3>
+
+	<table class="form-table">
+
+		<tr>
+			<th><label for="twitter">User Level</label></th>
+
+			<td>
+				<input type="text" name="user_level" id="user_level" value="<?php echo $user_level; ?>" class="regular-text" /><br />
+				<span class="description">Please enter the user level - default is 1.</span>
+			</td>
+		</tr>
+
+	</table>
+<?php }
+
+add_action( 'edit_user_profile_update', 'my_save_user_level_field' );
+
+function my_save_user_level_field($user_id){
+	if ( !current_user_can( 'edit_user', $user_id ) )
+		return false;
+	update_user_meta( $user_id, 'user_level', $_POST['user_level'] );
+}
+
+function d_check_if_cart_for_user_level_2(){
+	global $woocommerce;
+	$is_user_level_2 = false;
+	
+	foreach ($woocommerce->cart->cart_contents as $product){
+		if (get_post_meta($product['product_id'], 'User level', true) == 2){
+			$is_user_level_2 = true;
+		}
+	}
+	
+	return $is_user_level_2;
+}
+
+function d_check_if_order_for_user_level_2($order){
+	global $woocommerce;
+	$is_user_level_2 = false;
+	
+	$items = $order->get_items();
+	foreach ($items as $product){
+		if (get_post_meta($product['product_id'], 'User level', true) == 2){
+			$is_user_level_2 = true;
+		}
+	}
+	
+	return $is_user_level_2;
+}
+
+add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
+function custom_override_checkout_fields( $fields ) {
+   // echo "<pre>";var_dump($fields);echo "</pre>";
+    $fields['billing']['billing_city']['label'] = 'City';
+    $fields['billing']['billing_city']['placeholder'] = 'City';
+    $fields['shipping']['shipping_city']['label'] = 'City';
+    $fields['shipping']['shipping_city']['placeholder'] = 'City';
+     return $fields;
+}
+
+add_action('woocommerce_created_customer', 'admin_email_on_registration');
+function admin_email_on_registration() {
+    $user_id = get_current_user_id();
+    wp_new_user_notification( $user_id );
+}
+
+function admin_default_page() {
+  return 'membership';
+}
+
+add_filter('login_redirect', 'admin_default_page');

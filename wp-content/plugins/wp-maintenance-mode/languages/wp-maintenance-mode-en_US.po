@@ -1,0 +1,390 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Maintenance Mode 2.0.0\n"
+"POT-Creation-Date: 2014-08-28 21:10+0200\n"
+"PO-Revision-Date: 2014-08-28 21:10+0200\n"
+"Last-Translator: \n"
+"Language-Team: Designmodo <info@designmodo.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.7\n"
+"X-Poedit-Basepath: ../\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: includes/classes\n"
+"X-Poedit-SearchPath-2: views\n"
+
+#: includes/classes/wp-maintenance-mode-admin.php:146
+msgid "WP Maintenance Mode"
+msgstr ""
+
+#: includes/classes/wp-maintenance-mode-admin.php:296
+msgid "Settings"
+msgstr ""
+
+#: includes/classes/wp-maintenance-mode-admin.php:315
+#, php-format
+msgid ""
+"The Maintenance Mode is <strong>active</strong>. Please don't forget to <a "
+"href=\"%s\">deactivate</a> as soon as you are done."
+msgstr ""
+
+#: includes/classes/wp-maintenance-mode.php:92
+#: includes/classes/wp-maintenance-mode.php:93
+msgid "Maintenance mode"
+msgstr ""
+
+#: includes/classes/wp-maintenance-mode.php:95
+msgid ""
+"<p>Sorry for the inconvenience.<br />Our website is currently undergoing "
+"scheduled maintenance.<br />Thank you for your understanding.</p>"
+msgstr ""
+
+#: includes/classes/wp-maintenance-mode.php:113
+msgid "Notify me when it's ready"
+msgstr ""
+
+#: includes/classes/wp-maintenance-mode.php:220
+#, php-format
+msgid ""
+"WP Maintenance Mode plugin was relaunched and you MUST revise <a href=\"%s"
+"\">settings</a>."
+msgstr ""
+
+#: includes/classes/wp-maintenance-mode.php:418
+#: includes/classes/wp-maintenance-mode.php:432
+msgid "Maintenance Mode"
+msgstr ""
+
+#: includes/classes/wp-maintenance-mode.php:620
+#: includes/classes/wp-maintenance-mode.php:648
+msgid "Please enter a valid email address."
+msgstr ""
+
+#: includes/classes/wp-maintenance-mode.php:631
+msgid "You successfuly subscribed. Thanks!"
+msgstr ""
+
+#: includes/classes/wp-maintenance-mode.php:644
+msgid "All fields required."
+msgstr ""
+
+#: includes/classes/wp-maintenance-mode.php:665
+msgid "Message via contact"
+msgstr ""
+
+#: includes/classes/wp-maintenance-mode.php:669
+msgid "Your email was sent to the website administrator. Thanks!"
+msgstr ""
+
+#: views/maintenance.php:45
+msgid "your e-mail..."
+msgstr ""
+
+#: views/maintenance.php:46 views/settings.php:258 views/sidebar.php:22
+#: views/sidebar.php:28
+msgid "Subscribe"
+msgstr ""
+
+#: views/maintenance.php:83
+msgid "Name"
+msgstr ""
+
+#: views/maintenance.php:84
+msgid "E-mail"
+msgstr ""
+
+#: views/maintenance.php:86
+msgid "Your message"
+msgstr ""
+
+#: views/maintenance.php:87
+msgid "Send"
+msgstr ""
+
+#: views/maintenance.php:92
+msgid "Contact us"
+msgstr ""
+
+#: views/maintenance.php:97
+#, php-format
+msgid "Developed by <a href=\"%s\">Designmodo</a>"
+msgstr ""
+
+#: views/settings.php:6
+msgid "Settings saved."
+msgstr ""
+
+#: views/settings.php:13
+msgid "General"
+msgstr ""
+
+#: views/settings.php:14
+msgid "Design"
+msgstr ""
+
+#: views/settings.php:15
+msgid "Modules"
+msgstr ""
+
+#: views/settings.php:24
+msgid "Status"
+msgstr ""
+
+#: views/settings.php:26
+msgid "Activated"
+msgstr ""
+
+#: views/settings.php:27
+msgid "Deactivated"
+msgstr ""
+
+#: views/settings.php:31
+msgid "Bypass for Search Bots"
+msgstr ""
+
+#: views/settings.php:34 views/settings.php:94 views/settings.php:104
+#: views/settings.php:230 views/settings.php:266 views/settings.php:303
+#: views/settings.php:356
+msgid "Yes"
+msgstr ""
+
+#: views/settings.php:35 views/settings.php:95 views/settings.php:105
+#: views/settings.php:231 views/settings.php:267 views/settings.php:304
+#: views/settings.php:357
+msgid "No"
+msgstr ""
+
+#: views/settings.php:37
+msgid "Allow Search Bots to bypass maintenance mode?"
+msgstr ""
+
+#: views/settings.php:41
+msgid "Backend Role"
+msgstr ""
+
+#: views/settings.php:48
+msgid "Which user role is allowed to access the backend of this blog?"
+msgstr ""
+
+#: views/settings.php:52
+msgid "Frontend Role"
+msgstr ""
+
+#: views/settings.php:59
+msgid "Which user role is allowed to access the frontend of this blog?"
+msgstr ""
+
+#: views/settings.php:63
+msgid "Robots Meta Tag"
+msgstr ""
+
+#: views/settings.php:69
+msgid ""
+"The robots meta tag lets you use a granular, page-specific approach to "
+"control how an individual page should be indexed and served to users in "
+"search results."
+msgstr ""
+
+#: views/settings.php:73
+msgid "Redirection"
+msgstr ""
+
+#: views/settings.php:76
+msgid ""
+"If you want to redirect a user to a URL (which is not the WordPress "
+"dashboard) after login, then define a URL (incl. http://)"
+msgstr ""
+
+#: views/settings.php:80
+msgid "Exclude"
+msgstr ""
+
+#: views/settings.php:87
+msgid ""
+"Exclude feed, pages, archives or IPs from maintenance mode. Add one slug / "
+"IP per line!"
+msgstr ""
+
+#: views/settings.php:91
+msgid "Notice"
+msgstr ""
+
+#: views/settings.php:97
+msgid "Do you want to see notices when maintenance mode is activated?"
+msgstr ""
+
+#: views/settings.php:101
+msgid "Author link"
+msgstr ""
+
+#: views/settings.php:107
+msgid ""
+"Do you want to leave a link to the plugin author on your maintenance mode "
+"page?"
+msgstr ""
+
+#: views/settings.php:121
+msgid "Content"
+msgstr ""
+
+#: views/settings.php:126
+msgid "Title (HTML tag)"
+msgstr ""
+
+#: views/settings.php:132
+msgid "Heading"
+msgstr ""
+
+#: views/settings.php:139 views/settings.php:272
+msgid "Text"
+msgstr ""
+
+#: views/settings.php:159
+msgid "Background"
+msgstr ""
+
+#: views/settings.php:164
+msgid "Choose type"
+msgstr ""
+
+#: views/settings.php:167
+msgid "Custom color"
+msgstr ""
+
+#: views/settings.php:168
+msgid "Uploaded background"
+msgstr ""
+
+#: views/settings.php:169
+msgid "Predefined background"
+msgstr ""
+
+#: views/settings.php:174
+msgid "Choose color"
+msgstr ""
+
+#: views/settings.php:180
+msgid "Upload background"
+msgstr ""
+
+#: views/settings.php:184
+msgid "Backgrounds should have 1920x1280 px size."
+msgstr ""
+
+#: views/settings.php:189
+msgid "Choose background"
+msgstr ""
+
+#: views/settings.php:222
+msgid "Countdown"
+msgstr ""
+
+#: views/settings.php:227
+msgid "Show countdown?"
+msgstr ""
+
+#: views/settings.php:236
+msgid "Start date"
+msgstr ""
+
+#: views/settings.php:242
+msgid "Countdown (remaining time)"
+msgstr ""
+
+#: views/settings.php:244
+msgid "Days"
+msgstr ""
+
+#: views/settings.php:245
+msgid "Hours"
+msgstr ""
+
+#: views/settings.php:246
+msgid "Minutes"
+msgstr ""
+
+#: views/settings.php:250
+msgid "Color"
+msgstr ""
+
+#: views/settings.php:263
+msgid "Show subscribe?"
+msgstr ""
+
+#: views/settings.php:279
+msgid "Stats"
+msgstr ""
+
+#: views/settings.php:283
+#, php-format
+msgid "You have %d subscriber(s)"
+msgstr ""
+
+#: views/settings.php:288
+msgid "Export as CSV"
+msgstr ""
+
+#: views/settings.php:295
+msgid "Social Networks"
+msgstr ""
+
+#: views/settings.php:300
+msgid "Show social networks?"
+msgstr ""
+
+#: views/settings.php:348
+msgid "Contact"
+msgstr ""
+
+#: views/settings.php:353
+msgid "Show contact?"
+msgstr ""
+
+#: views/settings.php:362
+msgid "Email address"
+msgstr ""
+
+#: views/settings.php:368
+msgid "Effects"
+msgstr ""
+
+#: views/sidebar.php:3
+msgid "Plugin Info"
+msgstr ""
+
+#: views/sidebar.php:13
+msgid "Author"
+msgstr ""
+
+#: views/sidebar.php:14
+msgid "Website"
+msgstr ""
+
+#: views/sidebar.php:15
+msgid "Twitter"
+msgstr ""
+
+#: views/sidebar.php:16
+msgid "GitHub"
+msgstr ""
+
+#: views/sidebar.php:24
+msgid "Subscribe now for early access to new WordPress themes."
+msgstr ""
+
+#: views/sidebar.php:27
+msgid "Enter your email address"
+msgstr ""
+
+#: views/sidebar.php:34
+msgid "News"
+msgstr ""
+
+#: views/sidebar.php:50
+msgid "Resources"
+msgstr ""

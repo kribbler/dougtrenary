@@ -1,0 +1,20 @@
+<?php
+
+function dougtrenary_widgets_init() {
+	register_sidebar( array(
+		'name'          => __( 'Header Widget Area', 'dougtrenary' ),
+		'id'            => 'sidebar-3',
+		'description'   => __( 'Appears in the header section of the site.', 'dougtrenary' ),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+}
+add_action( 'widgets_init', 'dougtrenary_widgets_init' );
+
+function get_post_content_by_slug($slug){
+	$post = get_page_by_path( $slug, OBJECT, 'post' );
+	$postcontent = apply_filters('the_content', $post->post_content); 
+	return $postcontent;
+}
